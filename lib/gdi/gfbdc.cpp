@@ -176,19 +176,6 @@ void gFBDC::exec(const gOpcode *o)
 		break;
 	}
 #ifdef USE_LIBVUGLES2
-	case gOpcode::sendShowItem:
-	{
-		gles_set_buffer((unsigned int *)surface.data);
-		gles_set_animation_listbox(o->parm.setShowItemInfo->dir, o->parm.setShowItemInfo->point.x(), o->parm.setShowItemInfo->point.y(), o->parm.setShowItemInfo->size.width(), o->parm.setShowItemInfo->size.height());
-		delete o->parm.setShowItemInfo;
-		break;
-	}
-	case gOpcode::setFlush:
-	{
-		gles_set_flush(o->parm.setFlush->enable);
-		delete o->parm.setFlush;
-		break;
-	}
 	case gOpcode::setView:
 	{
 		gles_viewport(o->parm.setViewInfo->size.width(), o->parm.setViewInfo->size.height(), fb->Stride());
